@@ -35,6 +35,7 @@ Why introduce "as code" into the element of compliance?
     - Stronger automation posture
 - Stronger posture towards version control
 - Maintenance optimization & Cognitive Burden decrease
+    - It can be monitored for staleness and further integrates Security with Development
 
 <!--
 - We have many disparate ways to catalog and document compliance
@@ -90,15 +91,31 @@ Review your compliance landscape
 # Automation
 
 We have and will continue to build more options towards automation that can process OSCAL.
-- 
+- Establishing OSCAL artifacts allows for current/future utilization
+- Defining what problem you want to solve
+    - Selection of a supported language that can process OSCAL
+    - Automation of OSCAL management vs OSCAL control validation
+
+
 <!--
 - Re-iterate the importance of the "machine readable format"
 - Why automate? easy - it gets us into reproducible validation towards controls
+- OSCAL management being the processes that keep these artifacts up-to-date aswell as the transition between models and/or GRC tooling
+- Control validation being some automated check to report the control implementation is satisfied. 
 -->
 
 ---
 
-# Realm of Possibility
+# Examples
+
+[Awesome OSCAL](https://github.com/oscal-club/awesome-oscal) Primary locations for monitoring for new updates.
+
+Where I have personally contributed
+- [Lula](https://github.com/defenseunicorns/lula)
+- [go-oscal](https://github.com/defenseunicorns/go-oscal)
+- [Platform One Big Bang OSCAL Artifacts](https://repo1.dso.mil/big-bang/product/packages/istio-controlplane/-/blob/main/oscal-component.yaml)
+- [Big Bang OSCAL Generator](https://github.com/defenseunicorns/bigbang-oscal-component-generator)
+- [Component Aggregator](https://github.com/brandtkeller/component-generator)
 
 ---
 
@@ -110,6 +127,7 @@ We have and will continue to build more options towards automation that can proc
 - Ability to aggregate
 - audit vs enforcement
 - domain awareness
+- Continuous runtime & CICD
 -->
 
 ---
