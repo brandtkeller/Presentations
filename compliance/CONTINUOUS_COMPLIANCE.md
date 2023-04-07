@@ -7,7 +7,7 @@ theme: gaia
 class: invert
 ---
 
-# Continuous Compliance & Lula
+# Continuous Compliance with Lula
 
 ![w:400 h:400](./images/logo.png)
 
@@ -15,9 +15,9 @@ class: invert
 
 # Introduction
 - Compliance Vs Security
-- Authority to Operate
-- Continuous Authority to Operate
+- ATO <-> cATO
 - How do we get there?
+- Continuous Compliance
 - Lula
 - Demo
 
@@ -33,61 +33,104 @@ class: invert
 
 <!--
 - The intent of implementing compliance requirements is to promote security.
+- You can look at compliance as a checkbox activity to create some body of evidence that "do compliance stuff" - OR - you can meet the intent of compliance and promote security through continuous validation.
 -->
 
 ---
 
-# Authority to Operate
-- Period review against a snapshot of the system
-- Often a "check-box" activity
-- Little re-usable components are available
-    - Everyone is duplicating work for common components
+# ATO <-> cATO
+- What do we need to be approved initially?
+- How do we plan to deliver updates to be approved continuously?
+- What do we plan to deliver and how will it impact security?
 
-
-<!-- 
-- The problem here has many nuances - but some common denominators are that the ATO process is both a fixed point in time on the initial system and approved against a product instead of process
--->
-
----
-
-# cATO
-
-- Seeks approval for process instead of product
-- More agile to deliver updates and ultimately request/prove ATO
-- Continuous Compliance
-    - CI/CD processes that prove 
+- Considerations need to be made:
+    - Approve a process that is continuously auditable vs point in time product
+    - Re-usable compliance artifacts that are validated continuously
+    - CI/CD and GitOps to perform validation on change
 
 <!-- 
-- Whether you prescribe to the existence of the cATO or not - the underlying concept for seeking approval of processes in place of product moves us into a realm of continuous compliance
-- We need the ability to deliver updates that both pre-declare control satisfaction as well as provide data to ensure it satisfies the control throughout its lifetime.
+- The goal here isn't to bike shed about which to use
+- More important to focus on how to deliver - securely - and how to drive for optimal outcomes with regards to approval.
+- Holistically - we want to look at
+    - How we get there initially - keying in on future sustainability
+    - How do we plan to retain approval as we deliver updates
+    - What are we delivering - how does it impact security? some apps more than others
+- Given what we want to do - we start to make considerations for optimal processes
+- Note: You can do all of this without OSCAL and Lula 
 -->
 
 ---
 <!--_footer: 1. Governance, Risk, Compliance-->
-# How do we get there?
+# Improving on the cATO
 - Re-usable Components
     - OSCAL models
 - Pre-runtime Validation
+    - CI/CD quality gates for GitOps workflow -> Compliance Mapping
 - Event-driven runtime Validation
-    - Integration with GRC tooling[1]
+    - Integration with GRC[1] tooling
     - Live Visualization
 <!--
+- The mission ultimately demands transparency and insights in real-time 
+- OSCAL is - in my opinion - how we cast a vote towards tomorrow that we want process to be better. 
+- It's an artifact that does nothing on it's own - but positions itself for standard automated use. 
+- if you had an OSCAL component definition today - I can already consume it wth a variety of tools 
+- Re-use cannot be understated here - upstream artifacts can be consumed for use downstream with greater specificity where required
+-->
 
+---
+
+# Continuous Compliance
+
+- We want the ability to visualize compliance and security in real-time
+    - Automation becomes very apparent here
+    - The accuracy of our control responses must be continually iterated
+    - Verification needs to include both presence of the capability and proper configuration
+
+<!--
+- Expanding on that last slide with runtime validation
+- Continuous Compliance means we can get real-time insights into automated validation checks 
+- those can be fed into GRC tooling to visualize against a system security plan 
+- I've seen - to my horror - control responses for something like the AC - Access Control family state "Service mesh provides mTLS between services" - but what about when it doesn't - Do you have policy and other checks in place to ensure that can't be circumvented?
 -->
 
 ---
 
 # Lula
-- Open Source Project
+- Free and Open Source Project
     - https://github.com/defenseunicorns/lula
-- Static manifest and Runtime validation of control satisfaction    
+    - No licensing
+- Static manifest and Runtime validation of control satisfaction
+- Allows the provided OSCAL to establish provenance for the validation activity    
 - Collaboration with NIST to drive enhancements to OSCAL
-    - Promote adoption of OSCAL through incremental automated and non-automated process artifacts
+    - Build and Maintain OSCAL developer libraries and tools 
+        - See go-oscal
 
+<!--
+- First and foremost a free and open source project - no strings attached
+- The goal with lula is to build a tool that places the trust for the activity it performs in the compliance data it ingests. 
+- The provenance of control validation with Lula lies in the OSCAL it ingests
+-->
+
+--- 
+
+# Demo
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![w:400 h:400](./images/nist-logo-png-transparent.png)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![w:400 h:400](./images/logo.png)
 <!--
 
 -->
 
 --- 
 
-# Demo
+# Summary
+- Re-usable components saves time and results in more accurate compliance state
+    - Artifacts are long-lived and continually evaluated for update
+-  Transparency
+    - Understanding the implications of software updates
+    - Continuous Compliance = Insight into Real Time Risk
+
+<!--
+- Current initiatives include: 
+    - looking at multiple engines for validation
+    - Support for Infrastructure validation as well as generic API validation
+    - Provenance in establishing i
+-->
