@@ -16,7 +16,7 @@ class: invert
 # Introduction
 - Compliance Vs Security
 - ATO <-> cATO
-- How do we get there?
+- Improving on the cATO
 - Continuous Compliance
 - Lula
 - Demo
